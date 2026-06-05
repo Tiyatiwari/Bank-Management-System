@@ -1,0 +1,27 @@
+[
+    {
+        "name": "aradhya tiwari",
+        "age": 22,
+        "email": "aradhya@gmail.com",
+        "pin": 2345,
+        "accountNo": "1234",
+        "balance": 6000
+    },
+    {
+        "name": "ashmit",
+        "age": 23,
+        "email": "ashimit@gmail.com",
+        "pin": 4567,
+        "accountNo": "e0*6zQ9",
+        "balance": 0
+    },
+    {
+        "name": "aradhya ",
+        "age": 18,
+        "email": "aradhya@gmail.com",
+        "pin": "7890",
+        "accountNo": "33VV6O!",
+        "balance": 0,
+        "transactions": []
+    }
+]
