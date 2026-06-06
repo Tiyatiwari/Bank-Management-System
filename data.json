@@ -3,7 +3,7 @@
         "name": "aradhya tiwari",
         "age": 22,
         "email": "aradhya@gmail.com",
-        "pin": 2345,
+        "pin": 4578,
         "accountNo": "1234",
         "balance": 6000
     },
@@ -21,6 +21,15 @@
         "email": "aradhya@gmail.com",
         "pin": "7890",
         "accountNo": "33VV6O!",
+        "balance": 0,
+        "transactions": []
+    },
+    {
+        "name": "amish",
+        "age": 19,
+        "email": "amisha@gmail.com",
+        "pin": "0987",
+        "accountNo": "6QP&6E2",
         "balance": 0,
         "transactions": []
     }

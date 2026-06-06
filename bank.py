@@ -64,6 +64,13 @@ class Bank:
                 return user
 
         return None
+    def login(self, accountNo, pin):
+
+        user = Bank.findUser(accountNo, pin)
+
+        if not user:
+            return False, "invalid account number or pin"
+        return True, user
 
     # Create account
     def createAccount(self, name, age, email, pin):
