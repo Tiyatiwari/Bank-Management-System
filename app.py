@@ -13,7 +13,8 @@ menu = st.sidebar.selectbox(
     [
         "Create Account",
         "Login",
-        "Dashboard"
+        "Dashboard",
+        "Deposit"
     ]
 )
 st.write(menu)
@@ -82,3 +83,34 @@ elif menu == "Dashboard":
         st.write(
             f"Balance : ₹{user['balance']} "
         )
+
+elif menu == "Deposit" :
+
+    if st.session_state.user is None:
+
+        st.warning("please login first")
+
+    else:
+
+        amount = st.number_input(
+            "Enter Amount", min_value = 1
+        )
+        
+        if st.button("Deposit"):
+
+            user = st.session_state.user
+
+            success, result = bank.depositMoney(
+                user["accountNo"],
+                user["pin"],
+                amount
+            )
+
+            if success :
+                
+
+                st.success(result)
+                
+            else :
+
+                st.error(result)
