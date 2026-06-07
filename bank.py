@@ -187,7 +187,7 @@ class Bank:
             if len(str(newPin)) != 4:
                 return False, "PIN must be 4 digits"
 
-            user["pin"] = int(newPin)
+            user["pin"] = str(newPin)
 
         Bank.__update()
 
