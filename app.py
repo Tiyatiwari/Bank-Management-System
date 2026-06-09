@@ -9,61 +9,129 @@ if "user" not in st.session_state:
 
 st.title("🏦 Bank Management System")
 
-menu = st.sidebar.selectbox(
-    "Choose Option",
-    [
-        "Create Account",
-        "Login",
-        "Dashboard",
-        "Deposit",
-        "withdraw",
-        "Transaction History",
-        "Update Details",
-        "Delete Account",
-        "Logout"
-       
-    ]
-)
-st.write(menu)
+# =========================
+# Dynamic Sidebar
+# =========================
 
+if st.session_state.user is None:
+
+    menu = st.sidebar.selectbox(
+        "Choose Option",
+        [
+            "Create Account",
+            "Login"
+        ]
+    )
+
+else:
+
+    menu = st.sidebar.selectbox(
+        "Choose Option",
+        [
+            "Dashboard",
+            "Deposit",
+            "Withdraw",
+            "Transaction History",
+            "Update Details",
+            "Delete Account",
+            "Logout"
+        ]
+    )
+
+# =========================
+# CREATE ACCOUNT
+# =========================
 
 if menu == "Create Account":
-    st.header("Create account")
+
+    st.header("Create Account")
 
     name = st.text_input("Name")
 
-    age = st.number_input("age", min_value = 18, step = 1)
+    age = st.number_input(
+        "Age",
+        min_value=18,
+        step=1
+    )
 
     email = st.text_input("Email")
 
-    pin = st.text_input("PIN", type = "password")
+    pin = st.text_input(
+        "PIN",
+        type="password"
+    )
 
     if st.button("Create Account"):
-        success , result = bank.createAccount(name, age, email, pin)
-        if success :
-            st.success("Account created sucessfully")
+
+        success, result = bank.createAccount(
+            name,
+            age,
+            email,
+            pin
+        )
+
+        if success:
+
+            st.success(
+                "Account Created Successfully"
+            )
+
             st.json(result)
 
-        else :
+        else:
+
             st.error(result)
+
+# =========================
+# LOGIN
+# =========================
 
 elif menu == "Login":
 
     st.header("Login")
 
-    accountNo = st.text_input("Account Number")
-    pin = st.text_input("PIN", type = "password")
+    accountNo = st.text_input(
+        "Account Number"
+    )
+
+    pin = st.text_input(
+        "PIN",
+        type="password"
+    )
 
     if st.button("Login"):
-        success, result = bank.login(accountNo, pin)
+
+        success, result = bank.login(
+            accountNo,
+            pin
+        )
 
         if success:
+
             st.session_state.user = result
 
-            st.success(f"welcome {result['name']}")
+            st.success(
+                f"Welcome {result['name']}"
+            )
 
-        else :
+            st.rerun()
+
+        else:
+
             st.error(result)
+
+# KEEP ALL YOUR OTHER
+# ELIF SECTIONS BELOW
+#
+# Dashboard
+# Deposit
+# Withdraw
+# Transaction History
+# Update Details
+# Delete Account
+# Logout
+#
+# EXACTLY AS THEY ARE
 
 elif menu == "Dashboard":
 
@@ -80,16 +148,29 @@ elif menu == "Dashboard":
         st.success(
             f"Welcome {user['name']}"
         )
-        st.write(
-            f"Account Number : {user['accountNo']}"
-        )
+        
+        col1, col2 = st.columns(2)
 
-        st.write(
-            f"Email : {user['email']}"
-        )
+        with col1:
+            st.info(
+                f"""
+                Account Number :
+                {user['accountNo']}
+                """
+            )
+        with col2:
+            st.info(
+                f"""
+                Email:
+                {user['email']}
+                """
+            )
+
         st.metric(
-            "Current Balance", f"₹{user['balance']}"
+            "current Balance", 
+            f"₹{user['balance']}"
         )
+       
 
 elif menu == "Deposit" :
 
@@ -259,7 +340,10 @@ elif  menu == "Logout":
         if st.button("yes, Logout"):
 
           st.session_state.user = None
-          st.success("Logged out sucessfully!")
+          st.success(
+              "Logged out sucessfully!"
+          )
+          st.rerun()
 
 
 
