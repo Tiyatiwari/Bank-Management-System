@@ -87,8 +87,8 @@ elif menu == "Dashboard":
         st.write(
             f"Email : {user['email']}"
         )
-        st.write(
-            f"Balance : ₹{user['balance']} "
+        st.metric(
+            "Current Balance", f"₹{user['balance']}"
         )
 
 elif menu == "Deposit" :
@@ -161,7 +161,7 @@ elif menu == "Transaction History" :
             st.info("No transaction found")
         else:
             df = pd.DataFrame(transactions)
-            st.table(df)
+            st.dataframe(df, use_container_width = True)
 
 
 elif menu == "Update Details":

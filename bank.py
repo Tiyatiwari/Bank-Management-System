@@ -2,6 +2,9 @@ import json
 import random
 import string
 from pathlib import Path
+from datetime import datetime
+
+
 
 
 class Bank:
@@ -116,7 +119,8 @@ class Bank:
         user["transactions"].append(
             {
                 "type": "Deposit",
-                "amount": amount
+                "amount": amount,
+                "time": datetime.now().strftime("%d-%m-%Y %H:%M:%S")
             }
         )
 
@@ -143,7 +147,8 @@ class Bank:
         user["transactions"].append(
             {
                 "type": "Withdraw",
-                "amount": amount
+                "amount": amount,
+                "time": datetime.now().strftime("%d-%m-%Y %H:%M:%S")
             }
         )
 

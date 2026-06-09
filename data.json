@@ -1,1 +1,39 @@
-[]
+[
+    {
+        "name": "Tiya",
+        "age": 18,
+        "email": "tiya@2205gmail.com",
+        "pin": "1234",
+        "accountNo": "3L!L10L",
+        "balance": 8890,
+        "transactions": [
+            {
+                "type": "Deposit",
+                "amount": 400,
+                "time": "09-06-2026 18:02:34"
+            },
+            {
+                "type": "Withdraw",
+                "amount": 400
+            },
+            {
+                "type": "Deposit",
+                "amount": 10000,
+                "time": "09-06-2026 18:08:26"
+            },
+            {
+                "type": "Withdraw",
+                "amount": 100
+            },
+            {
+                "type": "Withdraw",
+                "amount": 1000
+            },
+            {
+                "type": "Withdraw",
+                "amount": 10,
+                "time": "09-06-2026 18:19:17"
+            }
+        ]
+    }
+]
